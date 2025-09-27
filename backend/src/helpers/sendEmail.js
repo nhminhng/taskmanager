@@ -19,13 +19,16 @@ const sendEmail = async (
   link
 ) => {
   const transporter = nodeMailer.createTransport({
-    service: "Outlook365",
-    host: "smtp.office365.com",
+    service: "gmail",
+    host: process.env.EMAIL_HOST,
     port: 587,
     secure: false,
     auth: {
       user: process.env.USER_EMAIL, //Your Outlook email
       pass: process.env.EMAIL_PASS, //Your Outlook password
+    },
+    tls: {
+      ciphers: "SSLv3",
     },
   });
 
