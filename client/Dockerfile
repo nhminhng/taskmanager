@@ -22,6 +22,6 @@ RUN rm -rf *
 # COPY --from=build /app/.next ./.next
 # COPY --from=build /app/public ./
 # COPY --from=build /app/out ./
-COPY --from=build /app/.next/output/static ./
+COPY --from=build /app/.next/static ./
 EXPOSE 80
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
